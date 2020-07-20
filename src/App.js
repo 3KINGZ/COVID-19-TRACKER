@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     onSearchCountry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
