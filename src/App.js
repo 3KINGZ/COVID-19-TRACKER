@@ -46,6 +46,7 @@ function App() {
         setError("...oops an error occured while loading page");
       });
   }
+  console.log(error);
 
   return (
     <div className="app">
