@@ -37,9 +37,11 @@ function App() {
       }`
     )
       .then((res) => res.json())
-      .then((json) =>
-        // Save the posts into state
-        setSearchResult(json.data.rows.map((c) => c))
+      .then(
+        (json) =>
+          // Save the posts into state
+          setSearchResult(json.data.rows.map((c) => c)),
+        setSearch("")
       )
       .catch((error) => {
         setError("...oops an error occured while loading page");
