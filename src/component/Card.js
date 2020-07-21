@@ -4,7 +4,7 @@ function Card({ imgSrc, imgAlt, data, label }) {
   return (
     <div>
       <img src={imgSrc} alt={imgAlt} />
-      <div>{data[0].total_cases}</div>
+      <div>{data}</div>
       <div className="label ">{label}</div>
     </div>
   );

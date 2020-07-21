@@ -12,20 +12,25 @@ function CardContainer({ result }) {
       <Card
         imgSrc={totalCases}
         alt="total cases"
-        data={result}
+        data={result[0].total_cases}
         label="TOTAL CASES"
       />
-      <Card imgSrc={death} alt="deaths" data={result} label="TOTAL DEATHS" />
+      <Card
+        imgSrc={death}
+        alt="deaths"
+        data={result[0].total_deaths}
+        label="TOTAL DEATHS"
+      />
       <Card
         imgSrc={recovery}
         alt="total deaths"
-        data={result}
+        data={result[0].total_recovered}
         label="TOTAL RECOVERIES"
       />
       <Card
         imgSrc={active}
         alt="active cases"
-        data={result}
+        data={result[0].active_cases}
         label="ACTIVE CASES"
       />
     </div>
