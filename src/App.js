@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import CardContainer from "./component/Card-container";
 import Table from "./component/Table";
 import virus from "./images/virus (1).svg";
@@ -9,7 +9,6 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
-  const input = useRef();
 
   useEffect(() => {
     onSearchCountry();
@@ -32,7 +31,6 @@ function App() {
   }, []);
 
   function onSearchCountry() {
-    setSearch(input.current.value);
     fetch(
       `https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=${
         search ? search : "world"
@@ -58,24 +56,26 @@ function App() {
       <input
         type="text"
         placeholder="Search country"
-        ref={input}
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
         onKeyPress={(event) =>
           event.key === "Enter" ? onSearchCountry() : null
         }
       />
-      <div className="country">{search ? search : "world"}</div>
       {searchResult.length > 0 ? (
-        <CardContainer result={searchResult} />
+        <>
+          <h3 className="country">{searchResult[0].country}</h3>
+          <CardContainer result={searchResult} />
+        </>
       ) : (
         <h1>...oops no data on the country you searched</h1>
       )}
       <Table data={data} />
-      <h3>
-        *please stay safe{" "}
+      <h3 className="footer">
+        please stay safe{" "}
         <span role="img" aria-label="face with mask">
           😷
         </span>
-        *
       </h3>
     </div>
   );
