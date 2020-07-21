@@ -36,3 +36,10 @@ table > tr > td > img {
   width: 10%;
   margin-right: 3%;
 }
+
+@media only screen and (max-width: 600px) {
+  table > tr > td > img {
+    width: 35%;
+    margin-right: 3%;
+  }
+}
